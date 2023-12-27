@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "project-fastapi"
+version = "0.1.0"
+description = ""
+authors = ["Nikolay"]
+readme = "README.md"
+packages = [{include = "project_fastapi"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pre-commit = "^3.6.0"
+black = "^23.12.1"
+isort = "^5.13.2"
+flake8 = "^6.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
+target-version = ['py312']

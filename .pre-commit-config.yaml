@@ -1,0 +1,34 @@
+repos:
+-   repo: https://github.com/python-poetry/poetry
+    rev: '1.7.0'  # add version here
+    hooks:
+    -   id: poetry-check
+    -   id: poetry-lock
+#    -   id: poetry-export
+    -   id: poetry-install
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 'v4.5.0'
+    hooks:
+    -   id: end-of-file-fixer
+    -   id: check-added-large-files  # предотвращает коммит гигантских файлов
+        args: [--maxkb=2048]
+    -   id: check-merge-conflict # проверяет наличие файлов, содержащих конфликтные строки слияния
+    -   id: check-yaml # проверяет файлы yaml на наличие разборчивого синтаксиса
+    -   id: check-toml
+    -   id: debug-statements # checks for debugger imports
+    -   id: end-of-file-fixer # гарантирует, что файл либо пуст, либо заканчивается одной новой строкой
+    -   id: trailing-whitespace # обрезает конечные пробелы
+    -   id: detect-private-key # обнаруживает наличие приватных ключей
+-   repo: https://github.com/psf/black
+    rev: '23.12.1'
+    hooks:
+    -   id: black
+-   repo: https://github.com/pycqa/isort
+    rev: '5.13.2'
+    hooks:
+    -   id: isort
+        name: isort (python)
+-   repo: https://github.com/pycqa/flake8
+    rev: '6.1.0'
+    hooks:
+    -   id: flake8

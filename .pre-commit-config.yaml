@@ -4,7 +4,7 @@ repos:
     hooks:
     -   id: poetry-check
     -   id: poetry-lock
-#    -   id: poetry-export
+#    -   id: poetry-export  # записывает зависимости в файл requirements
     -   id: poetry-install
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: 'v4.5.0'

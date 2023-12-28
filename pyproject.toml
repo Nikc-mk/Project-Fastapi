@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Nikolay"]
 readme = "README.md"
-packages = [{include = "project_fastapi"}]
+packages = []
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -12,6 +12,10 @@ pre-commit = "^3.6.0"
 black = "^23.12.1"
 isort = "^5.13.2"
 flake8 = "^6.1.0"
+fastapi = {extras = ["all"], version = "^0.108.0"}
+sqlalchemy = "^2.0.23"
+alembic = "^1.13.1"
+psycopg2-binary = "^2.9.9"
 
 
 [build-system]

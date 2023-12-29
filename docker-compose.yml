@@ -3,18 +3,18 @@ version: '3.9'
 services:
   postgres:
     container_name: postgres_container
-    image: postgres:16.1-alpine3.19
+    image: postgres:latest
     env_file:
       - .env
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres_password}
       POSTGRES_DB: ${POSTGRES_DB:-postgres}
       PGDATA: /data/postgres
     volumes:
        - postgres:/data/postgres
     ports:
-      - "5432:5432"
+      - "${PG_PORT:-5432}:5432"
     networks:
       - postgres
     restart: always
@@ -25,9 +25,8 @@ services:
     env_file:
       - .env
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@pgadmin.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-pgadmin_password}
     volumes:
        - pgadmin:/var/lib/pgadmin
 

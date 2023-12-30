@@ -9,15 +9,14 @@ from fastapi_users import (
     schemas,
 )
 
-from auth.database import User, get_user_db
-from config import SECRET_KEY_JWT_AUTH
-
-SECRET = SECRET_KEY_JWT_AUTH
+from src.auth.models import User
+from src.auth.utils import get_user_db
+from src.config import SECRET_KEY_AUTH
 
 
 class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
-    reset_password_token_secret = SECRET
-    verification_token_secret = SECRET
+    reset_password_token_secret = SECRET_KEY_AUTH
+    verification_token_secret = SECRET_KEY_AUTH
 
     async def on_after_register(
         self, user: User, request: Optional[Request] = None
